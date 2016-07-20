@@ -1,0 +1,14 @@
+<h1>Leggo Legends</h1>
+<p>Champions that are on free champ rotation</p>
+<% @champs.each do |x| %>
+<% if x.free_to_play == true %>
+
+<% @champ_name.each do |t| %>
+<% if t.champ_id == x.id%>
+<p><%=t.name%></p>
+<%end%>
+<%end%>
+<%end%>
+
+<%end%>
+

@@ -1,0 +1,17 @@
+<div>
+<%= form_for :user, url: edit_user_registration_path do |f| %>
+	<div class="field">
+		<%= f.label "Username"%>
+		<%= f.text_field :game_name %>
+	</div>
+
+	<div class="field">
+		<%= f.label "Region"%>
+		<%= f.select :region, ["BR", "EUNE", "EUW", "JP", "KR", "LAN", "LAS", "NA", "OCE", "RU", "TR"]%>
+	</div>
+
+	<div class="field">
+		<%= f.submit "Update"%>
+	</div>
+	<%end%>
+</div>

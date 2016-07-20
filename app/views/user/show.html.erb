@@ -1,0 +1,26 @@
+<% if current_user%>
+	<%= link_to "edit", edit_user_registration_path %>
+<%end%>
+<div>
+	<h1>User#show</h1>
+	<p>Find me in app/views/user/show.html.erb</p>
+	<%= image_tag "#{@profile_icon_url}"%>
+	<h3>Username:  <%=current_user.game_name%></h3>
+	<h3>Email:  <%=current_user.email%></h3>
+	<h4>Region:  <%=current_user.region%></h4>
+	<%if @champs_info != []%>
+		<h4> Most played champions </h4>
+		<% @champs_info.each do |champ| %>
+			<% @champ_name.each do |name| %>
+				<% if champ["championId"] == name.champ_id%>
+				<% @name = name.name.gsub(" ","")%>
+				<h4><%= image_tag "http://ddragon.leagueoflegends.com/cdn/#{@current_version}/img/champion/#{@name}.png"%>
+				<h4>Champion Name:  <%=name.name %></h4>
+				<h4>Mastery Level: 	<%=champ["championLevel"]%></h4>
+				<%end%>
+			<%end%>
+		<%end%>
+	<% else %>
+		<h3>We cannot get enough information to know your most played champs  </h3>
+	<%end%>
+</div>
